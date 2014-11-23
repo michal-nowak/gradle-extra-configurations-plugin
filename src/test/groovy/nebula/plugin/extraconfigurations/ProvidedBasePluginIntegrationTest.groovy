@@ -247,7 +247,6 @@ publishing {
         commonsLang.@conf.text() == 'provided'
     }
 
-    @Ignore("https://github.com/nebula-plugins/gradle-extra-configurations-plugin/issues/14")
     def "Provided dependencies are not included in war archive"() {
         when:
         buildFile << """
@@ -274,7 +273,6 @@ task explodedWar(type: Copy) {
         !new File(projectDir, 'build/libs/exploded/WEB-INF/lib/commons-lang3-3.3.2.jar').exists()
     }
 
-    @Ignore("https://github.com/nebula-plugins/gradle-extra-configurations-plugin/issues/14")
     def "Order of plugins declaration does not affect war content"() {
         when:
         buildFile << """
@@ -301,7 +299,6 @@ task explodedWar(type: Copy) {
         !new File(projectDir, 'build/libs/exploded/WEB-INF/lib/commons-lang3-3.3.2.jar').exists()
     }
 
-    @Ignore("https://github.com/nebula-plugins/gradle-extra-configurations-plugin/issues/14")
     def "Transitive dependencies in scope provided are not included in war archive"() {
         when:
         helper.addSubproject(
